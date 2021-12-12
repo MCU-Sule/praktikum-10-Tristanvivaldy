@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TristanVivaldy 2172032">
+    <title>Guessing</title>
+</head>
+<style>
+    .container {
+        position: absolute;
+        display: flex;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .tebakan {
+        border: 2px solid black;
+        padding: 20px;
+        padding-top: 0px;
+        font-size: 40px;
+    }
+    .button {
+        margin-top: 10px;
+    }
+    button {
+        display: block;
+        width: 80px;
+        height: 25px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="tebakan" id="dipilih1">0</div>
+        <div class="tebakan" id="dipilih2">0</div>
+        <div class="tebakan" id="dipilih3">0</div>
+        <div class="tebakan" id="dipilih4">0</div>
+        <div class="tebakan" id="dipilih5">0</div>
+        <div class="button">
+        <button id="tebak">Guess</button>
+        <button id="reset">Reset</button>
+        </div>
+    </div>
+    <script>
+        let angkarandom = Math.floor(Math.random()*10001);
+        let urutan = 1; //Variable Kanan Kiri
+        let angkanaikturun1 = 0; //Variable Atas Bawah div 1
+        let angkanaikturun2 = 0; //Variable Atas Bawah div 2
+        let angkanaikturun3 = 0; //Variable Atas Bawah div 3
+        let angkanaikturun4 = 0; //Variable Atas Bawah div 4
+        let angkanaikturun5 = 0; //Variable Atas Bawah div 5
+        let pilihan = document.getElementById("dipilih1");
+        pilihan.style.border="2px solid red";
+
+        document.getElementById("reset").addEventListener("click", resetbtn);
+        function resetbtn() {
+            angkarandom = Math.floor(Math.random()*10001);
+            for (k=1;k<=5; k++) {
+                document.getElementById("dipilih"+k).style.border="2px solid black";
+                document.getElementById("dipilih"+k).innerHTML="0";
+            }
+            pilihan.style.border="1px solid red";
+            urutan = 1;
+            angkanaikturun1 = 0;
+            angkanaikturun2 = 0;
+            angkanaikturun3 = 0;
+            angkanaikturun4 = 0;
+            angkanaikturun5 = 0;
+            console.log (angkarandom)
+        }
+
+        document.getElementById("tebak").addEventListener("click", guess);
+        function guess(){
+            let angka1 = document.getElementById("dipilih1").innerHTML;
+            let angka2 = document.getElementById("dipilih2").innerHTML;
+            let angka3 = document.getElementById("dipilih3").innerHTML;
+            let angka4 = document.getElementById("dipilih4").innerHTML;
+            let angka5 = document.getElementById("dipilih5").innerHTML;
+            if (angka1+angka2+angka3+angka4+angka5 < angkarandom ) {
+                alert ("terlalu kecil")
+            }
+            else if ( angka1+angka2+angka3+angka4+angka5 > angkarandom ) {
+                alert ("terlalu besar")
+            }
+            else if ( angka1+angka2+angka3+angka4+angka5 == angkarandom ) {
+                alert ("you win")
+            }
+        }
+
+        document.addEventListener("keydown", keypress); //NaikTurunAngka
+        function keypress(gerak) {
+            if (gerak.keyCode == 39) { //Arrow Right
+                if (urutan == 5) {
+                    document.getElementById("dipilih"+urutan).style.border="2px solid red";
+                }
+                else {
+                    document.getElementById("dipilih"+urutan).style.border="2px solid black";
+                    urutan++
+                    document.getElementById("dipilih"+urutan).style.border="2px solid red";
+                }
+            }
+            else if (gerak.keyCode == 37) { //Arrow Left
+                if (urutan == 1) {
+                    document.getElementById("dipilih"+urutan).style.border="2px solid red";
+                }
+                else {
+                    document.getElementById("dipilih"+urutan).style.border="2px solid black";
+                    urutan--
+                    document.getElementById("dipilih"+urutan).style.border="2px solid red";
+                }
+            }
+            else if (gerak.keyCode == 38) { //Arrow Up
+                if (urutan == 1) {
+                    if (angkanaikturun1 == 9) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun1;
+                    }
+                    else {
+                        angkanaikturun1++
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun1;  
+                    }
+                }
+                else if (urutan == 2) {
+                    if (angkanaikturun2 == 9) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun2;
+                    }
+                    else {
+                        angkanaikturun2++
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun2;  
+                    }
+                } 
+                else if (urutan == 3) {
+                    if (angkanaikturun3 == 9) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun3;
+                    }
+                    else {
+                        angkanaikturun3++
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun3;  
+                    }
+                }
+                else if (urutan == 4) {
+                    if (angkanaikturun4 == 9) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun4;
+                    }
+                    else {
+                        angkanaikturun4++
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun4;  
+                    }
+                }
+                else if (urutan == 5) {
+                    if (angkanaikturun5 == 9) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun5;
+                    }
+                    else {
+                        angkanaikturun5++
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun5;  
+                    }
+                }
+            }
+            else if (gerak.keyCode == 40) { //Arrow Down
+                if (urutan == 1) {
+                    if (angkanaikturun1 == 0) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun1;
+                    }
+                    else {
+                        angkanaikturun1--
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun1;  
+                    }
+                }
+                else if (urutan == 2) {
+                    if (angkanaikturun2 == 0) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun2;
+                    }
+                    else {
+                        angkanaikturun2--
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun2;  
+                    }
+                } 
+                else if (urutan == 3) {
+                    if (angkanaikturun3 == 0) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun3;
+                    }
+                    else {
+                        angkanaikturun3--
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun3;  
+                    }
+                }
+                else if (urutan == 4) {
+                    if (angkanaikturun4 == 0) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun4;
+                    }
+                    else {
+                        angkanaikturun4--
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun4;  
+                    }
+                }
+                else if (urutan == 5) {
+                    if (angkanaikturun5 == 0) {
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun5;
+                    }
+                    else {
+                        angkanaikturun5--
+                        document.getElementById("dipilih"+urutan).innerHTML=angkanaikturun5;  
+                    }
+                }
+            }
+        }
+        console.log (angkarandom)
+    </script>
+</body>
+</html>

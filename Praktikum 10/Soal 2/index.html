@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TristanVivaldy 2172032">
+    <title>TicTacToe</title>
+</head>
+<style>
+    .container {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+    td {
+        border: 1px solid black;
+        width: 50px;
+        height: 50px;
+    }
+    caption {
+        font-weight: bold;
+        margin-bottom: 20px;
+        font-size: 25px;
+    }
+    .jalan {
+        font-size: 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .restart {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 10px;
+        padding: 5px;
+        width: 130px;
+        height: 35px;
+    }
+    td {
+        padding: 5px;
+        text-align: center;
+        font-size: 40px;
+    }
+</style>
+<body>
+    <script>
+        let urutan = 0;
+        function disable() {
+            for(k=1;k<=9;k++) {
+                    document.querySelector(".isi"+k).onclick="";
+                }
+        }
+        function kemenangan() {
+            cell1 = document.querySelector(".isi1");
+            cell2 = document.querySelector(".isi2");
+            cell3 = document.querySelector(".isi3");
+            cell4 = document.querySelector(".isi4");
+            cell5 = document.querySelector(".isi5");
+            cell6 = document.querySelector(".isi6");
+            cell7 = document.querySelector(".isi7");
+            cell8 = document.querySelector(".isi8");
+            cell9 = document.querySelector(".isi9");
+            // Untuk X
+            if (cell1.innerHTML == "X" && cell2.innerHTML == "X" && cell3.innerHTML == "X") {
+                cell1.style.backgroundColor= "yellow";
+                cell2.style.backgroundColor= "yellow";
+                cell3.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player X has won";
+                disable()
+            }
+            else if (cell4.innerHTML == "X" && cell5.innerHTML == "X" && cell6.innerHTML == "X") {
+                cell4.style.backgroundColor= "yellow";
+                cell5.style.backgroundColor= "yellow";
+                cell6.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player X has won";
+                disable()
+            }
+            else if (cell7.innerHTML == "X" && cell8.innerHTML == "X" && cell9.innerHTML == "X") {
+                cell7.style.backgroundColor= "yellow";
+                cell8.style.backgroundColor= "yellow";
+                cell9.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player X has won";
+                disable()
+            }
+            else if (cell1.innerHTML == "X" && cell4.innerHTML == "X" && cell7.innerHTML == "X") {
+                cell1.style.backgroundColor= "yellow";
+                cell4.style.backgroundColor= "yellow";
+                cell7.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player X has won";
+                disable()
+            }
+            else if (cell2.innerHTML == "X" && cell5.innerHTML == "X" && cell8.innerHTML == "X") {
+                cell2.style.backgroundColor= "yellow";
+                cell5.style.backgroundColor= "yellow";
+                cell8.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player X has won";
+                disable()
+            }
+            else if (cell3.innerHTML == "X" && cell6.innerHTML == "X" && cell9.innerHTML == "X") {
+                cell3.style.backgroundColor= "yellow";
+                cell6.style.backgroundColor= "yellow";
+                cell9.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player X has won";
+                disable()
+            }
+            else if (cell1.innerHTML == "X" && cell5.innerHTML == "X" && cell9.innerHTML == "X") {
+                cell1.style.backgroundColor= "yellow";
+                cell5.style.backgroundColor= "yellow";
+                cell9.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player X has won";
+                disable()
+            }
+            else if (cell3.innerHTML == "X" && cell5.innerHTML == "X" && cell7.innerHTML == "X") {
+                cell3.style.backgroundColor= "yellow";
+                cell5.style.backgroundColor= "yellow";
+                cell7.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player X has won";
+                disable()
+            }
+            //Untuk O
+            else if (cell1.innerHTML == "O" && cell2.innerHTML == "O" && cell3.innerHTML == "O") {
+                cell1.style.backgroundColor= "yellow";
+                cell2.style.backgroundColor= "yellow";
+                cell3.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player O has won";
+                disable()
+            }
+            else if (cell4.innerHTML == "O" && cell5.innerHTML == "O" && cell6.innerHTML == "O") {
+                cell4.style.backgroundColor= "yellow";
+                cell5.style.backgroundColor= "yellow";
+                cell6.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player O has won";
+                disable()
+            }
+            else if (cell7.innerHTML == "O" && cell8.innerHTML == "O" && cell9.innerHTML == "O") {
+                cell7.style.backgroundColor= "yellow";
+                cell8.style.backgroundColor= "yellow";
+                cell9.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player O has won";
+                disable()
+            }
+            else if (cell1.innerHTML == "O" && cell4.innerHTML == "O" && cell7.innerHTML == "O") {
+                cell1.style.backgroundColor= "yellow";
+                cell4.style.backgroundColor= "yellow";
+                cell7.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player O has won";
+                disable()
+            }
+            else if (cell2.innerHTML == "O" && cell5.innerHTML == "O" && cell8.innerHTML == "O") {
+                cell2.style.backgroundColor= "yellow";
+                cell5.style.backgroundColor= "yellow";
+                cell8.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player O has won";
+                disable()
+            }
+            else if (cell3.innerHTML == "O" && cell6.innerHTML == "O" && cell9.innerHTML == "O") {
+                cell3.style.backgroundColor= "yellow";
+                cell6.style.backgroundColor= "yellow";
+                cell9.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player O has won";
+                disable()
+            }
+            else if (cell1.innerHTML == "O" && cell5.innerHTML == "O" && cell9.innerHTML == "O") {
+                cell1.style.backgroundColor= "yellow";
+                cell5.style.backgroundColor= "yellow";
+                cell9.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player O has won";
+                disable()
+            }
+            else if (cell3.innerHTML == "O" && cell5.innerHTML == "O" && cell7.innerHTML == "O") {
+                cell3.style.backgroundColor= "yellow";
+                cell5.style.backgroundColor= "yellow";
+                cell7.style.backgroundColor= "yellow";
+                document.querySelector(".jalan").innerHTML="Player O has won";
+                disable()
+            }
+            
+        }
+        function jalan(isi, turn) {
+            let data = document.querySelector(isi);
+            console.log(data);
+                if (urutan % 2 == 0) {
+                    if (urutan == 8) {
+                        document.querySelector(turn).innerHTML="Tied";
+                }
+                    else {
+                        document.querySelector(turn).innerHTML="O's turn";
+                }
+                        console.log("X");
+                        data.innerHTML="X";
+                        data.onclick = "";
+                }
+                else {
+                    if (urutan == 8) {
+                        document.querySelector(turn).innerHTML="Tied";
+                }
+                    else {
+                        document.querySelector(turn).innerHTML="X's turn";
+                }
+                    console.log("O");
+                    data.innerHTML="O";
+                    data.onclick = "";
+                }
+                urutan++
+                kemenangan();
+            }
+            
+        function restart() {
+            console.log(urutan)
+            urutan=0;
+            document.querySelector(".jalan").innerHTML="X's turn";
+            document.querySelector(".isi1").onclick = function(){ jalan('.isi1','.jalan'); } ;
+            document.querySelector(".isi2").onclick = function(){ jalan('.isi2','.jalan'); } ;
+            document.querySelector(".isi3").onclick = function(){ jalan('.isi3','.jalan'); } ;
+            document.querySelector(".isi4").onclick = function(){ jalan('.isi4','.jalan'); } ;
+            document.querySelector(".isi5").onclick = function(){ jalan('.isi5','.jalan'); } ;
+            document.querySelector(".isi6").onclick = function(){ jalan('.isi6','.jalan'); } ;  
+            document.querySelector(".isi7").onclick = function(){ jalan('.isi7','.jalan'); } ;
+            document.querySelector(".isi8").onclick = function(){ jalan('.isi8','.jalan'); } ;
+            document.querySelector(".isi9").onclick = function(){ jalan('.isi9','.jalan'); } ;
+            for (l=1;l<=9;l++){
+                document.querySelector(".isi"+l).innerHTML="";
+                document.querySelector(".isi"+l).style.backgroundColor="white";
+            }
+        }
+    </script>
+<div class="container">
+    <table cellspacing="0" cellpadding="0">
+        <caption for="tabel"> Tic Tac Toe</caption>
+        <tr>
+            <td onclick="jalan('.isi1', '.jalan')" class="isi1"></td>
+            <td onclick="jalan('.isi2', '.jalan')" class="isi2"></td>
+            <td onclick="jalan('.isi3', '.jalan')" class="isi3"></td>
+        </tr>
+        <tr>
+            <td onclick="jalan('.isi4', '.jalan')" class="isi4"></td>
+            <td onclick="jalan('.isi5', '.jalan')" class="isi5"></td>
+            <td onclick="jalan('.isi6', '.jalan')" class="isi6"></td>
+        </tr>
+        <tr>
+            <td onclick="jalan('.isi7', '.jalan')" class="isi7"></td>
+            <td onclick="jalan('.isi8', '.jalan')" class="isi8"></td>
+            <td onclick="jalan('.isi9', '.jalan')" class="isi9"></td>
+        </tr>
+    </table>
+</div>
+    <div class="jalan">X's turn</div>
+    <button class="restart" onclick="restart()">Restart Game</button>
+</body>
+</html>
